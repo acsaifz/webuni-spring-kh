@@ -45,7 +45,7 @@ public class Student {
     }
 
     public void removeCourse(Course course) {
-        if (course != null) {
+        if (courses != null) {
             courses.remove(course);
         }
     }
