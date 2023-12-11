@@ -13,7 +13,7 @@ public class DummyDataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        initDbService.clearDb();
-        initDbService.initDb();
+        //initDbService.clearDb();
+        //initDbService.initDb();
     }
 }

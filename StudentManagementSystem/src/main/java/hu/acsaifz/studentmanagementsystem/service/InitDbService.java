@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -38,15 +39,15 @@ public class InitDbService {
         Teacher teacher4 = teacherRepository.save(Teacher.builder().name("Takács Zsuzsanna").birthDate(LocalDate.parse("1976-04-29")).build());
         Teacher teacher5 = teacherRepository.save(Teacher.builder().name("Simon András").birthDate(LocalDate.parse("1982-11-15")).build());
 
-        Student student1 = studentRepository.save(Student.builder().name("Kovács Anna").birthDate(LocalDate.parse("2000-05-15")).semester(3).build());
-        Student student2 = studentRepository.save(Student.builder().name("Nagy Gábor").birthDate(LocalDate.parse("1999-08-20")).semester(4).build());
-        Student student3 = studentRepository.save(Student.builder().name("Varga Eszter").birthDate(LocalDate.parse("2001-02-10")).semester(2).build());
-        Student student4 = studentRepository.save(Student.builder().name("Tóth Bence").birthDate(LocalDate.parse("2002-01-25")).semester(1).build());
-        Student student5 = studentRepository.save(Student.builder().name("Molnár Petra").birthDate(LocalDate.parse("2000-11-30")).semester(3).build());
-        Student student6 = studentRepository.save(Student.builder().name("Kis Dávid").birthDate(LocalDate.parse("2001-06-05")).semester(2).build());
-        Student student7 = studentRepository.save(Student.builder().name("Fekete Zsuzsa").birthDate(LocalDate.parse("2002-04-12")).semester(1).build());
-        Student student8 = studentRepository.save(Student.builder().name("Szabó Dániel").birthDate(LocalDate.parse("2001-12-08")).semester(2).build());
-        Student student9 = studentRepository.save(Student.builder().name("Horváth Krisztina").birthDate(LocalDate.parse("2000-09-17")).semester(4).build());
+        Student student1 = studentRepository.save(Student.builder().name("Kovács Anna").birthDate(LocalDate.parse("2000-05-15")).semester(3).studentId(UUID.randomUUID().toString()).build());
+        Student student2 = studentRepository.save(Student.builder().name("Nagy Gábor").birthDate(LocalDate.parse("1999-08-20")).semester(4).studentId(UUID.randomUUID().toString()).build());
+        Student student3 = studentRepository.save(Student.builder().name("Varga Eszter").birthDate(LocalDate.parse("2001-02-10")).semester(2).studentId(UUID.randomUUID().toString()).build());
+        Student student4 = studentRepository.save(Student.builder().name("Tóth Bence").birthDate(LocalDate.parse("2002-01-25")).semester(1).studentId(UUID.randomUUID().toString()).build());
+        Student student5 = studentRepository.save(Student.builder().name("Molnár Petra").birthDate(LocalDate.parse("2000-11-30")).semester(3).studentId(UUID.randomUUID().toString()).build());
+        Student student6 = studentRepository.save(Student.builder().name("Kis Dávid").birthDate(LocalDate.parse("2001-06-05")).semester(2).studentId(UUID.randomUUID().toString()).build());
+        Student student7 = studentRepository.save(Student.builder().name("Fekete Zsuzsa").birthDate(LocalDate.parse("2002-04-12")).semester(1).studentId(UUID.randomUUID().toString()).build());
+        Student student8 = studentRepository.save(Student.builder().name("Szabó Dániel").birthDate(LocalDate.parse("2001-12-08")).semester(2).studentId(UUID.randomUUID().toString()).build());
+        Student student9 = studentRepository.save(Student.builder().name("Horváth Krisztina").birthDate(LocalDate.parse("2000-09-17")).semester(4).studentId(UUID.randomUUID().toString()).build());
 
         course1.addTeacher(teacher1);
         course2.addTeacher(teacher2);

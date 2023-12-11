@@ -33,6 +33,11 @@ public class Student {
 
     private int semester;
 
+    private String studentId;
+
+    @Column(name = "free_semesters", unique = true)
+    private int countOfFreeSemesters;
+
     @ManyToMany(
             mappedBy = "students"
     )
@@ -45,7 +50,7 @@ public class Student {
     }
 
     public void removeCourse(Course course) {
-        if (course != null) {
+        if (courses != null) {
             courses.remove(course);
         }
     }
