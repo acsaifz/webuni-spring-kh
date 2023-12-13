@@ -5,6 +5,7 @@ import hu.acsaifz.studentmanagementsystem.model.Course;
 import hu.acsaifz.studentmanagementsystem.repository.CourseRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ public class CourseService {
     }
 
     @Transactional
+    @Cacheable(value = "pagedCourses")
     public Page<Course> findAllWithRelationships(Predicate predicate, Pageable pageable){
         Page<Course> coursePage = courseRepository.findAll(predicate,pageable);
         List<Course> courses = coursePage.getContent();

@@ -64,6 +64,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-spring-boot3-starter-embedded</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>

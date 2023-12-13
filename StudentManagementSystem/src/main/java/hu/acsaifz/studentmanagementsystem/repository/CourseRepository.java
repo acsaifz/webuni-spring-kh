@@ -23,11 +23,11 @@ import java.util.Optional;
 
 public interface CourseRepository extends JpaRepository<Course, Long>, QuerydslPredicateExecutor<Course>, QuerydslBinderCustomizer<QCourse> {
 
-    @QueryHints({ @QueryHint(name = "org.hibernate.cacheable", value ="true") })
+    //@QueryHints({ @QueryHint(name = "org.hibernate.cacheable", value ="true") })
     @Query("SELECT DISTINCT c FROM Course c LEFT JOIN FETCH c.students WHERE c IN :courses")
     List<Course> fetchStudents(List<Course> courses);
 
-    @QueryHints({ @QueryHint(name = "org.hibernate.cacheable", value ="true") })
+    //@QueryHints({ @QueryHint(name = "org.hibernate.cacheable", value ="true") })
     @Query("SELECT DISTINCT c FROM Course c LEFT JOIN FETCH c.teachers WHERE c IN :courses")
     List<Course> fetchTeachers(List<Course> courses);
 
@@ -51,7 +51,7 @@ public interface CourseRepository extends JpaRepository<Course, Long>, QuerydslP
         return Optional.of(path.between(first,second));
     };
 
-    @Override
+    /*@Override
     @QueryHints({ @QueryHint(name = "org.hibernate.cacheable", value ="true") })
-    Page<Course> findAll(Predicate predicate, Pageable pageable);
+    Page<Course> findAll(Predicate predicate, Pageable pageable);*/
 }
