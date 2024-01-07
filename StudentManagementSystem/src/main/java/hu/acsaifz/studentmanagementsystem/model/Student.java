@@ -2,6 +2,7 @@ package hu.acsaifz.studentmanagementsystem.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.List;
         name = "students"
 )
 @Cacheable
+@Audited
 public class Student {
 
     @Id

@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -78,5 +79,14 @@ public class InitDbService {
         courseRepository.save(course1);
         courseRepository.save(course2);
         courseRepository.save(course3);
+    }
+
+    @Transactional
+    public void modifyDb(){
+        List<Course> courses = courseRepository.findAll();
+        if (!courses.isEmpty()){
+            Course course = courses.get(0);
+            course.setName(course.getName() + " MOD");
+        }
     }
 }

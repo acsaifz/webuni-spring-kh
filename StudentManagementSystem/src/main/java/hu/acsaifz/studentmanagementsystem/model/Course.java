@@ -2,6 +2,7 @@ package hu.acsaifz.studentmanagementsystem.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,8 @@ import java.util.List;
 @Table(
         name = "courses"
 )
+@Cacheable
+@Audited
 public class Course {
 
     @Id

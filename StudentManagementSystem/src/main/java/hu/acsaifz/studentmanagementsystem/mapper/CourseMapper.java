@@ -2,9 +2,11 @@ package hu.acsaifz.studentmanagementsystem.mapper;
 
 import hu.acsaifz.studentmanagementsystem.dto.CourseDto;
 import hu.acsaifz.studentmanagementsystem.model.Course;
+import hu.acsaifz.studentmanagementsystem.model.HistoryData;
 import org.mapstruct.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Mapper(
         componentModel = MappingConstants.ComponentModel.SPRING,
@@ -23,4 +25,19 @@ public interface CourseMapper {
 
     @IterableMapping(qualifiedByName = "summary")
     List<CourseDto> courseSummaryToDto(Iterable<Course> courses);
+
+    default List<HistoryData<CourseDto>> historyListToDto(List<HistoryData<Course>> historyList){
+        return historyList.stream()
+                .map(this::historyToDto)
+                .collect(Collectors.toList());
+    }
+
+    default HistoryData<CourseDto> historyToDto(HistoryData<Course> historyData){
+        return new HistoryData<>(
+                this.toDto(historyData.getData()),
+                historyData.getRevType(),
+                historyData.getRev(),
+                historyData.getDate()
+        );
+    }
 }
